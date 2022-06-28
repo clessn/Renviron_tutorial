@@ -23,6 +23,48 @@ Ces valeurs sont des variables, et non des fonctions qui retournent des valeurs.
 Les variables d'environnement, à moins d'être configurés à chaque nouvelle session, cessent d'exister!!
 
 ## La partie importante: R et .Renviron
+Pour R, il est possible de configurer des variables d'environnement à deux
+niveaux :
+
+- usager : les variables sont visibles par tous les projets R
+- projet : les variables sont visibles uniquement par le projet dans lequel 
+on se trouve
+
+Les variables d'environnement configurée au niveau de l'usager sont utiles
+pour des valeurs de variables qui demeurent les mêmes à travers les projets. Par exemple, l'url du hub3.0.
+
+### Pour les variable d'environnement au niveau usager
+1. Exécuter `usethis::edit_r_environ()` sur la ligne de commande R
+2. Ajouter la ligne `MA_VALEUR=patate123` dans le .Renviron
+4. Redémarrer R (Session -> Restart R, ou Ctrl+Shift+F10)
+5. Taper dans la console R `Sys.getenv("MA_VALEUR")`
+6. Confirmer que `patate123` apparait
+7. Profit!
+
+Et oui, vous pouvez utiliser les fonctions `Sys.getenv()` et `Sys.setenv()` pour manipuler les variables d'environnement. Mais le plus important est donc `Sys.getenv()`
+
+Supposons maintenant que vous voulez utiliser une table dans le hub3.0. Les fonctions du hub demandent à ce que vous leur fournissiez vos informations de connection (*credentials*). Pour ce faire
+
+1. Ajoutez dans le fichier .Renviron (avec la fonction `usethis::edit_r_environ`)
+```sh
+# .Renviron
+HUB3_URL      = "https://clhub.clessn.cloud/"
+HUB3_USERNAME = "<mon.nom.usager>"
+HUB3_PASSWORD = "<mon.mdp>"
+```
+2. Redémarrez la session R et validez que les variables existent.
+3. Maintenant, il est possible d'utiliser ces variables d'environnement pour instancier les *credentials* à utiliser dans les fonctions de `hublot`:
+```R
+credentials <- hublot::get_credentials(
+            Sys.getenv("HUB3_URL"), 
+            Sys.getenv("HUB3_USERNAME"), 
+            Sys.getenv("HUB3_PASSWORD")
+            )
+```
+Le code ainsi produit pourra être utilisé par tout utilisateur ayant configurer ses variables d'environnement pour accéder au hub3.0.
+
+
+### Pour les variables d'environnement au niveau du projet
 1. S'assurer que la ligne .Renviron est présente dans .gitignore (sinon vous pusherez vos variables secrètes. Zut!)
 2. Créer un fichier .Renviron
 3. Ajouter la ligne `MA_VALEUR=patate123` dans le .Renviron
@@ -41,7 +83,7 @@ clessnhub::login('myusername', 'mypassword')
 ```
 Mais le mot de passe se retrouvera dans github. Pas mieux!
 
-### La solution
+#### La solution pour les variables d'environnement relatives à un projet
 1. Assurez-vous d'abord que .Renviron est dans le .gitignore.
 2. Ajoutez dans le fichier .Renviron (ou créez-le), des variables pour votre utilisateur et mot de passe
 ```sh
