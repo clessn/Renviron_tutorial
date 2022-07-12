@@ -49,8 +49,8 @@ Supposons maintenant que vous voulez utiliser une table dans le hub3.0. Les fonc
 ```sh
 # .Renviron
 HUB3_URL      = "https://clhub.clessn.cloud/"
-HUB3_USERNAME = "<mon.nom.usager>"
-HUB3_PASSWORD = "<mon.mdp>"
+HUB3_USERNAME = "mon.nom.usager"
+HUB3_PASSWORD = "mon.mdp"
 ```
 2. Redémarrez la session R et validez que les variables existent.
 3. Maintenant, il est possible d'utiliser ces variables d'environnement pour instancier les *credentials* à utiliser dans les fonctions de `hublot`:
