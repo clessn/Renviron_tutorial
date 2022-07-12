@@ -30,7 +30,7 @@ niveaux :
 - projet : les variables sont visibles uniquement par le projet dans lequel 
 on se trouve
 
-Les variables d'environnement configurée au niveau de l'usager sont utiles
+Les variables d'environnement configurées au niveau de l'usager sont utiles
 pour des valeurs de variables qui demeurent les mêmes à travers les projets. Par exemple, l'url du hub3.0.
 
 ### Pour les variable d'environnement au niveau usager
