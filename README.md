@@ -45,7 +45,7 @@ Et oui, vous pouvez utiliser les fonctions `Sys.getenv()` et `Sys.setenv()` pour
 
 Supposons maintenant que vous voulez utiliser une table dans le hub3.0. Les fonctions du hub demandent à ce que vous leur fournissiez vos informations de connection (*credentials*). Pour ce faire
 
-1. Ajoutez dans le fichier .Renviron (avec la fonction `usethis::edit_r_environ`)
+1. Ajoutez dans le fichier .Renviron (avec la fonction `usethis::edit_r_environ()`)
 ```sh
 # .Renviron
 HUB3_URL      = "https://clhub.clessn.cloud/"
