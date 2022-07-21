@@ -22,7 +22,7 @@ Ces valeurs sont des variables, et non des fonctions qui retournent des valeurs.
 
 Les variables d'environnement, à moins d'être configurés à chaque nouvelle session, cessent d'exister!!
 
-## Comment configurer .Renviron
+## La partie importante: R et .Renviron
 Pour R, il est possible de configurer des variables d'environnement à deux
 niveaux :
 
@@ -35,23 +35,23 @@ pour des valeurs de variables qui demeurent les mêmes à travers les projets. P
 
 ### Pour les variable d'environnement au niveau usager
 1. Exécuter `usethis::edit_r_environ()` sur la ligne de commande R
-2. Ajouter la ligne `MA_VALEUR=patate123` dans le .Renviron
-4. Redémarrer R (Session -> Restart R, ou Ctrl+Shift+F10)
-5. Taper dans la console R `Sys.getenv("MA_VALEUR")`
-6. Confirmer que `patate123` apparait
-7. Profit!
-
-Et oui, vous pouvez utiliser les fonctions `Sys.getenv()` et `Sys.setenv()` pour manipuler les variables d'environnement. Mais le plus important est donc `Sys.getenv()`
-
-Supposons maintenant que vous voulez utiliser une table dans le hub3.0. Les fonctions du hub demandent à ce que vous leur fournissiez vos informations de connection (*credentials*). Pour ce faire
-
-1. Ajoutez dans le fichier .Renviron (avec la fonction `usethis::edit_r_environ()`)
+2. Ajouter les lignes suivantes dans le .Renviron:
 ```sh
 # .Renviron
 HUB3_URL      = "https://clhub.clessn.cloud/"
 HUB3_USERNAME = "mon.nom.usager"
 HUB3_PASSWORD = "mon.mdp"
 ```
+4. Redémarrer R (Session -> Restart R, ou Ctrl+Shift+F10)
+5. Taper dans la console R `Sys.getenv("HUB3_USERNAME")`
+6. Confirmer que votre username apparait
+7. Profit!
+
+Et oui, vous pouvez utiliser les fonctions `Sys.getenv()` et `Sys.setenv()` pour manipuler les variables d'environnement. Mais le plus important est donc `Sys.getenv()`
+
+Supposons maintenant que vous voulez utiliser une table dans le hub3.0. Les fonctions du hub demandent à ce que vous leur fournissiez vos informations de connection (*credentials*). Pour ce faire
+
+1. Ajoutez dans le fichier .Renviron (avec la fonction `usethis::edit_r_environ()`
 2. Redémarrez la session R et validez que les variables existent.
 3. Maintenant, il est possible d'utiliser ces variables d'environnement pour instancier les *credentials* à utiliser dans les fonctions de `hublot`:
 ```R
