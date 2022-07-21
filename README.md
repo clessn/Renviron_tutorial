@@ -22,7 +22,7 @@ Ces valeurs sont des variables, et non des fonctions qui retournent des valeurs.
 
 Les variables d'environnement, à moins d'être configurés à chaque nouvelle session, cessent d'exister!!
 
-## La partie importante: R et .Renviron
+## Comment configurer .Renviron
 Pour R, il est possible de configurer des variables d'environnement à deux
 niveaux :
 
