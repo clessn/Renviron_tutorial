@@ -45,7 +45,7 @@ HUB3_PASSWORD = "mon.mdp"
 4. Redémarrer R (Session -> Restart R, ou Ctrl+Shift+F10)
 5. Taper dans la console R `Sys.getenv("HUB3_USERNAME")`
 6. Confirmer que votre username apparait
-7. Profit!
+7. Terminé!
 
 Et oui, vous pouvez utiliser les fonctions `Sys.getenv()` et `Sys.setenv()` pour manipuler les variables d'environnement. Mais le plus important est donc `Sys.getenv()`
 
