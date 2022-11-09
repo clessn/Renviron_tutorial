@@ -1,33 +1,6 @@
 # Renviron Tutorial
 Renviron permet de cacher des valeurs secretes comme des mots de passe dans un projet.
 
-## TLDR
-
-### Configurer Renviron
-
-1. Exécuter `usethis::edit_r_environ()` sur la ligne de commande R
-2. Ajouter les lignes suivantes dans le .Renviron:
-```sh
-# .Renviron
-HUB3_URL      = "https://hublot.clessn.cloud/admin/"
-HUB3_USERNAME = "mon.nom.usager"
-HUB3_PASSWORD = "mon.mdp"
-```
-4. Redémarrer R (Session -> Restart R, ou Ctrl+Shift+F10)
-5. Taper dans la console R `Sys.getenv("HUB3_USERNAME")`
-6. Confirmer que votre username apparait
-7. Terminé!
-
-### Utiliser Renviron avec Hublot
-
-```R
-credentials <- hublot::get_credentials(
-            Sys.getenv("HUB3_URL"), 
-            Sys.getenv("HUB3_USERNAME"), 
-            Sys.getenv("HUB3_PASSWORD")
-            )
-```
-
 ## Concept
 Le problème avec github, c'est qu'il garde tous les derniers changements en mémoire. Donc, si vous pushez votre mot de passe, alors même si vous le supprimez et re-pushez vos changements, il reste dans l'historique. Il existe des solutions, mais elles sont généralement plus complexes que d'utiliser de bonnes méthodes de travail. Hadley Wickham recommande donc d'utiliser un fichier `.Renviron`. 
 
@@ -135,3 +108,30 @@ Voilà! Il vous suffit d'indiquer, dans le readme de votre projet, qu'un nouvel 
 ```
 
 À noter que même si .Renviron est dans .gitignore, il restera sur votre poste et vous pourrez donc travailler sur votre projet même si vous pullez ou pushez. La seule situation où il peut disparaitre est si vous changez de branche puis mergez, mais c'est rarement le cas dans vos projets.
+
+## Résumé
+
+### Configurer Renviron
+
+1. Exécuter `usethis::edit_r_environ()` sur la ligne de commande R
+2. Ajouter les lignes suivantes dans le .Renviron:
+```sh
+# .Renviron
+HUB3_URL      = "https://hublot.clessn.cloud/admin/"
+HUB3_USERNAME = "mon.nom.usager"
+HUB3_PASSWORD = "mon.mdp"
+```
+4. Redémarrer R (Session -> Restart R, ou Ctrl+Shift+F10)
+5. Taper dans la console R `Sys.getenv("HUB3_USERNAME")`
+6. Confirmer que votre username apparait
+7. Terminé!
+
+### Utiliser Renviron avec Hublot
+
+```R
+credentials <- hublot::get_credentials(
+            Sys.getenv("HUB3_URL"), 
+            Sys.getenv("HUB3_USERNAME"), 
+            Sys.getenv("HUB3_PASSWORD")
+            )
+```
