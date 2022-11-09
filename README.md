@@ -111,7 +111,7 @@ Voilà! Il vous suffit d'indiquer, dans le readme de votre projet, qu'un nouvel 
 
 ## Résumé
 
-### Configurer Renviron
+### Configurer Renviron pour Hublot
 
 1. Exécuter `usethis::edit_r_environ()` sur la ligne de commande R
 2. Ajouter les lignes suivantes dans le .Renviron:
