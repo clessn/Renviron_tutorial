@@ -38,7 +38,7 @@ pour des valeurs de variables qui demeurent les mêmes à travers les projets. P
 2. Ajouter les lignes suivantes dans le .Renviron:
 ```sh
 # .Renviron
-HUB3_URL      = "https://hublot.clessn.cloud/admin/"
+HUB3_URL      = "https://hublot.clessn.cloud/"
 HUB3_USERNAME = "mon.nom.usager"
 HUB3_PASSWORD = "mon.mdp"
 ```
