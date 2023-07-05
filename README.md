@@ -117,7 +117,7 @@ Voilà! Il vous suffit d'indiquer, dans le readme de votre projet, qu'un nouvel 
 2. Ajouter les lignes suivantes dans le .Renviron:
 ```sh
 # .Renviron
-HUB3_URL      = "https://hublot.clessn.cloud/admin/"
+HUB3_URL      = "https://hublot.clessn.cloud/"
 HUB3_USERNAME = "mon.nom.usager"
 HUB3_PASSWORD = "mon.mdp"
 ```
